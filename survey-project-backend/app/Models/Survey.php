@@ -11,7 +11,7 @@ class Survey extends Model
 
     protected $fillable = [
         'name',
-        'descrition',
+        'description',
         'is_open',
     ];
 

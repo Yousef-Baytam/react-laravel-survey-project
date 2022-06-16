@@ -19,7 +19,7 @@ class isAdmin
     public function handle(Request $request, Closure $next)
     {
         $user = User::find(Auth::user()->id);
-        if ($user->users_type == 'admin')
+        if ($user->user_type == 'admin')
             return $next($request);
         return dd('Dont mess around bro! (Charbel, 2022)');
     }
