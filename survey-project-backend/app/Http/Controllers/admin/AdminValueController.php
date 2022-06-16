@@ -19,4 +19,17 @@ class AdminValueController extends Controller
             "status" => "Success",
         ], 200);
     }
+
+    public function updateValue(Request $request, $id)
+    {
+        $value =  Value::find($id)->update([
+            'value' => $request->value,
+            'qeustion_id' => $id,
+        ]);
+
+        return response()->json([
+            "status" => "Success",
+            "res" => $value
+        ], 200);
+    }
 }
