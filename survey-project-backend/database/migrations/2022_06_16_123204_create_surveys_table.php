@@ -15,6 +15,8 @@ return new class extends Migration
     {
         Schema::create('surveys', function (Blueprint $table) {
             $table->id();
+            $table->string('name');
+            $table->text('description');
             $table->boolean('is_open');
             $table->timestamps();
         });

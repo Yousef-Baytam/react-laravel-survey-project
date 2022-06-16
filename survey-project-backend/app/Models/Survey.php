@@ -13,6 +13,6 @@ class Survey extends Model
 
     public function questions()
     {
-        return $this->hasMany(Survey::class, 'surveys_id', 'id');
+        return $this->hasMany(Question::class, 'surveys_id', 'id');
     }
 }
