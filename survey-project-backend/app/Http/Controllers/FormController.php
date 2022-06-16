@@ -19,6 +19,15 @@ class FormController extends Controller
 
     public function addForm(Request $request)
     {
+        Survey::create([
+            'name' => $request->name,
+            'descrition' => $request->descrition,
+            'is_open' => true,
+        ]);
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
     }
 
     public function updateForm()
