@@ -22,4 +22,18 @@ class AdminQuestionController extends Controller
             "status" => "Success",
         ], 200);
     }
+
+    public function updateQuestion(Request $request, $id)
+    {
+        $question =  Question::find($id)->update([
+            'question' => $request->question,
+            'surveys_id' => $id,
+            'question_type_id' => Question_type::where('question_type', $request->question_type)->get()[0]->id
+        ]);
+
+        return response()->json([
+            "status" => "Success",
+            "res" => $question
+        ], 200);
+    }
 }
