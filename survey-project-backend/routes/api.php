@@ -3,6 +3,9 @@
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
+use App\Http\Controllers\admin\AdminFormController;
+use App\Http\Controllers\admin\AdminQuestionController;
+use App\Http\Controllers\FormController;
 
 /*
 |--------------------------------------------------------------------------
@@ -28,10 +31,15 @@ Route::group(['prefix' => 'v1'], function () {
         Route::group(['middleware' => 'auth:api'], function () {
             Route::group(['middleware' => 'isAdmin'], function () {
                 Route::group(['prefix' => 'forms'], function () {
-                    Route::get('/', [FormsController::class, 'getAllForms']);
-                    Route::post('/new', [AdminFormsController::class, 'addForms']);
-                    Route::patch('/{id}', [AdminFormsController::class, 'updateForms']);
-                    Route::delete('/{id}', [AdminFormsController::class, 'deleteForms']);
+                    Route::get('/', [FormController::class, 'getAllForms']);
+                    Route::post('/new', [AdminFormController::class, 'addForm']);
+                    Route::patch('/{id}', [AdminFormController::class, 'updateForm']);
+                    Route::delete('/{id}', [AdminFormController::class, 'deleteForm']);
+                });
+                Route::group(['prefix' => 'questions'], function () {
+                    Route::post('/new/{id}', [AdminQuestionController::class, 'addQuestion']);
+                    Route::patch('/{id}', [AdminQuestionController::class, 'updateQuestion']);
+                    Route::delete('/{id}', [AdminQuestionController::class, 'deleteQuestion']);
                 });
             });
         });
@@ -39,9 +47,9 @@ Route::group(['prefix' => 'v1'], function () {
     Route::group(['prefix' => 'user'], function () {
         Route::group(['middleware' => 'auth:api'], function () {
             Route::group(['prefix' => 'forms'], function () {
-                Route::get('/', [FormsController::class, 'getAllForms']);
-                Route::get('/answered', [FormsController::class, 'getAllAnsweredForms']);
-                Route::post('/submit', [FormsFormsController::class, 'answerForms']);
+                Route::get('/', [FormController::class, 'getAllForms']);
+                Route::get('/answered', [FormController::class, 'getAllAnsweredForms']);
+                Route::post('/submit', [FormController::class, 'answerForm']);
             });
         });
     });
