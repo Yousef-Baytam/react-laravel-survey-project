@@ -4,7 +4,7 @@ namespace App\Http\Controllers\admin;
 
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
-use app\Models\Question;
+use App\Models\Question;
 use App\Models\Question_type;
 
 class AdminQuestionController extends Controller
@@ -15,7 +15,7 @@ class AdminQuestionController extends Controller
         Question::create([
             'question' => $request->question,
             'surveys_id' => $id,
-            'question_type_id' => Question_type::where('question_type', $request->question_type)->get()[0]->id
+            'question_type_id' => $request->question_type_id
         ]);
 
         return response()->json([
@@ -28,7 +28,7 @@ class AdminQuestionController extends Controller
         $question =  Question::find($id)->update([
             'question' => $request->question,
             'surveys_id' => $id,
-            'question_type_id' => Question_type::where('question_type', $request->question_type)->get()[0]->id
+            'question_type_id' => $request->question_type_id
         ]);
 
         return response()->json([
