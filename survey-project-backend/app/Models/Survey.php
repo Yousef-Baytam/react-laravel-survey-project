@@ -9,6 +9,12 @@ class Survey extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'descrition',
+        'is_open',
+    ];
+
     protected $table = 'surveys';
 
     public function questions()
