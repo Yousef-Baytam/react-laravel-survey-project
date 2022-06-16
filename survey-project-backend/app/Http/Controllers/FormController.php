@@ -46,5 +46,10 @@ class FormController extends Controller
 
     public function deleteForm($id)
     {
+        Survey::find($id)->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
     }
 }
