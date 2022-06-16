@@ -30,11 +30,21 @@ class FormController extends Controller
         ], 200);
     }
 
-    public function updateForm()
+    public function updateForm(Request $request, $id)
     {
+        $users = Survey::find($id)->update([
+            'name' => $request->name,
+            'descrition' => $request->descrition,
+            'is_open' => true,
+        ]);
+
+        return response()->json([
+            "status" => "Success",
+            "res" => $users
+        ], 200);
     }
 
-    public function deleteForm()
+    public function deleteForm($id)
     {
     }
 }
