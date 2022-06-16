@@ -25,4 +25,9 @@ class Question extends Model
     {
         return $this->belongsTo(Question_type::class, 'question_type_id', 'id');
     }
+
+    public function surveys()
+    {
+        return $this->belongsTo(Survey::class, 'surveys_id', 'id');
+    }
 }
