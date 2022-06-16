@@ -36,4 +36,13 @@ class AdminQuestionController extends Controller
             "res" => $question
         ], 200);
     }
+
+    public function deleteQuestion($id)
+    {
+        Question::find($id)->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
 }
