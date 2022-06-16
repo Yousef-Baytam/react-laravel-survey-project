@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\admin\AdminFormController;
 use App\Http\Controllers\admin\AdminQuestionController;
+use App\Http\Controllers\admin\AdminValueController;
 use App\Http\Controllers\FormController;
 
 /*
@@ -40,6 +41,11 @@ Route::group(['prefix' => 'v1'], function () {
                     Route::post('/new/{id}', [AdminQuestionController::class, 'addQuestion']);
                     Route::patch('/{id}', [AdminQuestionController::class, 'updateQuestion']);
                     Route::delete('/{id}', [AdminQuestionController::class, 'deleteQuestion']);
+                });
+                Route::group(['prefix' => 'questions'], function () {
+                    Route::post('/new/{id}', [AdminValueController::class, 'addValue']);
+                    Route::patch('/{id}', [AdminValueController::class, 'updateValue']);
+                    Route::delete('/{id}', [AdminValueController::class, 'deleteValue']);
                 });
             });
         });

@@ -9,6 +9,11 @@ class Value extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'value',
+        'qeustion_id'
+    ];
+
     protected $table = 'values';
 
     public function question_types()
