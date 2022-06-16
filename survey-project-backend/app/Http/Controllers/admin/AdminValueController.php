@@ -32,4 +32,13 @@ class AdminValueController extends Controller
             "res" => $value
         ], 200);
     }
+
+    public function deleteValue($id)
+    {
+        Value::find($id)->delete();
+
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
 }
