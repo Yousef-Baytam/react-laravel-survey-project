@@ -5,10 +5,11 @@ import axios from 'axios'
 import LogIn from "./pages/LogIn"
 import Register from './pages/Register'
 import Forms from './pages/Forms'
+import Header from './components/Header'
 
 function App() {
 
-  let location = useLocation
+  const navigate = useNavigate()
   const [forms, setForms] = useState([])
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
@@ -31,19 +32,29 @@ function App() {
       if (res.data) {
         setUser(res.data)
         setLoggedIn(true)
-        // window.location.href = '/forms'
       }
     }
     getUser()
   }, [])
 
+  useEffect(() => {
+    if (!loggedIn)
+      navigate('/')
+  }, [loggedIn])
+
+  useEffect(() => {
+    if (loggedIn)
+      navigate('/forms')
+  }, [loggedIn])
+
   return (
-    <BrowserRouter>
+    <>
+      <Header />
       <div className="App">
         <Routes>
           <Route
             path="/"
-            element={<LogIn />}
+            element={<LogIn loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           ></Route>
           <Route
             path="/register"
@@ -54,9 +65,8 @@ function App() {
             element={<Forms />}
           ></Route>
         </Routes>
-        {/* <Route path="/forms" element={<Forms />}></Route> */}
       </div>
-    </BrowserRouter>
+    </>
   );
 }
 
