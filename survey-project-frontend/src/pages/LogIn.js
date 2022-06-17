@@ -8,6 +8,7 @@ export default function LogIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    useEffect()
     const login = async () => {
         let data = new FormData()
         data.append('email', email)
@@ -24,8 +25,7 @@ export default function LogIn() {
             localStorage.setItem('token', res.data.authorisation.token)
         }
         catch (e) {
-            console.log('errorType', typeof e);
-            console.log('error', Object.assign({}, e));
+            console.log(e);
         }
     }
 
