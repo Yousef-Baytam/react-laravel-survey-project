@@ -18,7 +18,7 @@ export default function Header(props) {
                     <Link to={'/forms'}>All Forms</Link>
                 </div>
                 <div>
-                    <Link to={'/forms'}>Add Form</Link>
+                    <Link to={'/forms/new'}>Add Form</Link>
                 </div>
                 <div>
                     <Link to={'/forms'}>Answers</Link>

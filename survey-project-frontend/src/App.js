@@ -6,6 +6,7 @@ import LogIn from "./pages/LogIn"
 import Register from './pages/Register'
 import Forms from './pages/Forms'
 import Header from './components/Header'
+import AddForm from './pages/AddForm'
 
 function App() {
 
@@ -49,7 +50,7 @@ function App() {
 
   return (
     <>
-      {/* <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} /> */}
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div className="App">
         <Routes>
           <Route
@@ -63,6 +64,10 @@ function App() {
           <Route
             path="/forms"
             element={<Forms />}
+          ></Route>
+          <Route
+            path="/forms/new"
+            element={<AddForm />}
           ></Route>
         </Routes>
       </div>
