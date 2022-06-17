@@ -17,9 +17,6 @@ export default function LogIn(props) {
             let res = await axios({
                 url: "http://127.0.0.1:8000/api/login",
                 method: "POST",
-                headers: {
-                    'Content-Type': 'multipart/form-data'
-                },
                 data: data,
             })
             localStorage.setItem('token', res.data.authorisation.token)
@@ -36,7 +33,7 @@ export default function LogIn(props) {
                 <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
                 <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
                 <Submit value={'Login'} run={login} />
-                <Link to="/forms">About</Link>
+                <div>Dont have an accout?<Link to="/register">Register</Link></div>
             </form>
         </div>
     )

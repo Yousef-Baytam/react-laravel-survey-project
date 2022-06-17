@@ -58,7 +58,7 @@ function App() {
           ></Route>
           <Route
             path="/register"
-            element={<Register />}
+            element={<Register loggedIn={loggedIn} setLoggedIn={setLoggedIn} />}
           ></Route>
           <Route
             path="/forms"
