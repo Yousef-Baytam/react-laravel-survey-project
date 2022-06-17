@@ -11,6 +11,25 @@ export default function Register(props) {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const handleRegister = async () => {
+        let data = new FormData()
+        data.append('name', name)
+        data.append('email', email)
+        data.append('password', password)
+        try {
+            let res = await axios({
+                url: "http://127.0.0.1:8000/api/register",
+                method: "POST",
+                data: data,
+            })
+            localStorage.setItem('token', res.data.authorisation.token)
+            props.setLoggedIn(true)
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
     useEffect(() => {
         if (props.loggedIn)
             navigate('/forms')
