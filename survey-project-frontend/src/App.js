@@ -5,6 +5,8 @@ import axios from 'axios';
 
 function App() {
 
+  const [forms, setForms] = useState([])
+  const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
 
   useEffect(() => {
@@ -22,8 +24,10 @@ function App() {
         },
         data: data,
       })
-      if (user.data)
+      if (user.data) {
+        setUser(user.data)
         setLoggedIn(true)
+      }
     }
     getUser()
   }, [])
