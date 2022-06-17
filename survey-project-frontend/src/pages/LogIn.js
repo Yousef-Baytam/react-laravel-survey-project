@@ -8,6 +8,27 @@ export default function LogIn() {
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
+    const login = async () => {
+        let data = new FormData()
+        data.append('email', email)
+        data.append('password', password)
+        try {
+            let res = await axios({
+                url: "http://127.0.0.1:8000/api/login",
+                method: "POST",
+                headers: {
+                    'Content-Type': 'multipart/form-data'
+                },
+                data: data,
+            })
+            localStorage.setItem('token', res.data.authorisation.token)
+        }
+        catch (e) {
+            console.log('errorType', typeof e);
+            console.log('error', Object.assign({}, e));
+        }
+    }
+
     return (
         <div>
             <form>
