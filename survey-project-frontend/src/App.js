@@ -49,7 +49,7 @@ function App() {
 
   return (
     <>
-      <Header />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
       <div className="App">
         <Routes>
           <Route
