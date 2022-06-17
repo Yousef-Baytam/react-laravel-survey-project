@@ -3,9 +3,11 @@ import Input from '../components/Input'
 import { useState, useEffect } from "react"
 import Submit from '../components/Submit'
 import axios from 'axios'
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
 export default function LogIn(props) {
+
+    const navigate = useNavigate()
     const [email, setEmail] = useState('')
     const [password, setPassword] = useState('')
 
@@ -26,6 +28,11 @@ export default function LogIn(props) {
             console.log(e);
         }
     }
+
+    useEffect(() => {
+        if (props.loggedIn)
+            navigate('/forms')
+    }, [props.loggedIn])
 
     return (
         <div>
