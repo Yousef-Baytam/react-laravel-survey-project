@@ -14,3 +14,13 @@
   align-items: center;
   justify-content: flex-start;
 }
+
+input,
+textarea {
+  outline: none;
+  border-radius: 5px;
+  border-color: rgba(0, 0, 0, 0.322);
+  padding: 0.3em;
+  margin: 1em 0 1em 0;
+  width: 100%;
+}

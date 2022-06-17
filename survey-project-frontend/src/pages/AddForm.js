@@ -28,7 +28,7 @@ export default function AddForm() {
                 <Input type={'text'} name={'formName'} placeholder={'Form Title'} value={formName} setValue={setFormName} />
             </div>
             <div>
-                <Multiline name={'formName'} placeholder={'Form Title'} value={formDescription} setValue={setFormDescription} />
+                <Multiline name={'formName'} placeholder={'Form Description'} value={formDescription} setValue={setFormDescription} />
             </div>
             <div>
                 <input placeholder='Question' />
