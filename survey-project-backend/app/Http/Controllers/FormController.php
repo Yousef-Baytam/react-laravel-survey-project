@@ -39,4 +39,17 @@ class FormController extends Controller
             "answers" => $final,
         ], 200);
     }
+
+    public function answerForm($id, Request $request)
+    {
+        Answer::create([
+            'answer' => $request->answer,
+            'users_id' => Auth::user()->id,
+            'questions_id' => $id,
+            'questions_surveys_id' => Question::where('id', $id)->get()[0]->surveys_id,
+        ]);
+        return response()->json([
+            "status" => "Success",
+        ], 200);
+    }
 }
