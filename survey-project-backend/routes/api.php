@@ -55,7 +55,7 @@ Route::group(['prefix' => 'v1'], function () {
             Route::group(['prefix' => 'forms'], function () {
                 Route::get('/', [FormController::class, 'getAllForms']);
                 Route::get('/answered', [FormController::class, 'getAllAnsweredForms']);
-                Route::post('/submit', [FormController::class, 'answerForm']);
+                Route::post('/submit/{id}', [FormController::class, 'answerForm']);
             });
         });
     });

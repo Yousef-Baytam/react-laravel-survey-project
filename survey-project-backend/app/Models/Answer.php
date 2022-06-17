@@ -9,6 +9,13 @@ class Answer extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'answer',
+        'users_id',
+        'questions_id',
+        'questions_surveys_id',
+    ];
+
     protected $table = 'answers';
 
     public function users()
