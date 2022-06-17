@@ -1,7 +1,8 @@
-import './App.css';
-import { useState, useEffect } from "react";
-import { BrowserRouter, Routes, Route } from "react-router-dom";
-import axios from 'axios';
+import './App.css'
+import { useState, useEffect } from "react"
+import { BrowserRouter, Routes, Route } from "react-router-dom"
+import axios from 'axios'
+import LogIn from "./pages/LogIn"
 
 function App() {
 
@@ -33,9 +34,17 @@ function App() {
   }, [])
 
   return (
-    <div className="App">
-      hello
-    </div>
+    <BrowserRouter>
+      <div className="App">
+        <Routes>
+          <Route
+            path="/"
+            element={<LogIn />}
+          ></Route>
+        </Routes>
+        {/* <Route path="/forms" element={<Forms />}></Route> */}
+      </div>
+    </BrowserRouter>
   );
 }
 
