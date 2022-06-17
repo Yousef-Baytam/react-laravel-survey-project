@@ -42,7 +42,7 @@ export default function Register(props) {
                 <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
                 <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
                 <Submit value={'Sign up'} run={handleRegister} />
-                <Link to="/forms">About</Link>
+                <Link to="/">Back</Link>
             </form>
         </div>
     )
