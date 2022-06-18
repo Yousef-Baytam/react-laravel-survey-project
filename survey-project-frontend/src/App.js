@@ -7,12 +7,12 @@ import Register from './pages/Register'
 import Forms from './pages/Forms'
 import Header from './components/Header'
 import AddForm from './pages/AddForm'
-import { Provider } from 'react-redux'
-import store from './store'
 import { useSelector, useDispatch } from 'react-redux'
+import { storeUser, currentUser } from './features/userSlice'
 
 function App() {
   const dispatch = useDispatch()
+  const currentUser = useSelector((state) => state.user)
 
   const navigate = useNavigate()
   const [forms, setForms] = useState([])
