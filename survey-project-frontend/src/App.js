@@ -16,10 +16,31 @@ function App() {
   const currentUser = useSelector((state) => state.user)
 
   const navigate = useNavigate()
-  const [forms, setForms] = useState([])
   const [user, setUser] = useState({})
   const [loggedIn, setLoggedIn] = useState(false)
+  const [forms, setForms] = useState([])
+  const [allQuestions, setAllQuestions] = useState([])
 
+  const getAllForms = async () => {
+    try {
+      let res = await axios({
+        url: `http://127.0.0.1:8000/api/v1/user/forms`,
+        method: "Get",
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
+      })
+      setForms(res.data.surveys)
+      setAllQuestions(res.data.questions)
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getAllForms()
+  }, [])
   useEffect(() => {
     let token
     if (!localStorage.getItem('token'))
@@ -71,11 +92,11 @@ function App() {
           ></Route>
           <Route
             path="/forms"
-            element={<Forms />}
+            element={<Forms forms={forms} questions={allQuestions} />}
           ></Route>
           <Route
             path="/forms/:id"
-            element={<FormView />}
+            element={<FormView forms={forms} questions={allQuestions} />}
           ></Route>
           <Route
             path="/forms/new"
