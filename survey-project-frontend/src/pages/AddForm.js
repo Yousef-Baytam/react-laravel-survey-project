@@ -35,6 +35,28 @@ export default function AddForm() {
         }
     }
 
+    const handleFormTitle = () => {
+        if (!formCreated)
+            return (<>
+                <div>
+                    <Input type={'text'} name={'formName'} placeholder={'Form Title'} value={formName} setValue={setFormName} />
+                </div>
+                <div>
+                    <Multiline name={'formName'} placeholder={'Form Description'} value={formDescription} setValue={setFormDescription} />
+                </div>
+            </>)
+
+        if (formCreated)
+            return (<>
+                <div>
+                    {formName}
+                </div>
+                <div>
+                    {formDescription}
+                </div>
+            </>)
+    }
+
     const handleFormCreated = () => {
         if (!formCreated)
             return <div><button onClick={() => createForm()}>Create a Form</button></div>
@@ -61,12 +83,7 @@ export default function AddForm() {
 
     return (
         <div className='container'>
-            <div>
-                <Input type={'text'} name={'formName'} placeholder={'Form Title'} value={formName} setValue={setFormName} />
-            </div>
-            <div>
-                <Multiline name={'formName'} placeholder={'Form Description'} value={formDescription} setValue={setFormDescription} />
-            </div>
+            {handleFormTitle()}
             {handleFormCreated()}
             <div>
                 <List questions={questions} setQuestions={setQuestions} handleQuestion={handleQuestion} />
