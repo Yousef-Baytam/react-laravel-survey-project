@@ -60,7 +60,6 @@ export default function AddForm() {
     }
 
     const deleteQuestion = async (id) => {
-        console.log(id)
         try {
             let res = await axios({
                 url: `http://127.0.0.1:8000/api/v1/admin/questions/${ id }`,
