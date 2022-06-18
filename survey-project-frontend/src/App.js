@@ -73,6 +73,10 @@ function App() {
             element={<Forms />}
           ></Route>
           <Route
+            path="/forms/:id"
+            element={<Forms />}
+          ></Route>
+          <Route
             path="/forms/new"
             element={<AddForm />}
           ></Route>
