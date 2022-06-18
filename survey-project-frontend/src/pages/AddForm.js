@@ -7,6 +7,7 @@ import Radio from '../components/Radio'
 import Single from '../components/Single'
 import '../App.css'
 import axios from 'axios'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function AddForm() {
 
@@ -52,6 +53,7 @@ export default function AddForm() {
                 data: data,
             })
             console.log(res)
+            setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': res.data.question.id, 'question': questionText }])
         }
         catch (e) {
             console.log(e);
@@ -91,23 +93,23 @@ export default function AddForm() {
                     <option value={'Drop Down'}>Drop Down</option>
                     <option value={'MCQ'}>MCQ</option>
                 </select>
-                <button onClick={() => { setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': questions.length, 'question': questionText }]); createQuestion() }}>Add Question</button>
+                <button onClick={() => { createQuestion() }}>Add Question</button>
             </div>
     }
 
-    const handleAdminOptions = () => {
+    const handleAdminOptions = (num) => {
         return (
-            <div>helo</div>
+            <button onClick={() => setQuestions(questions.filter((i) => i.num != num))}>Delete</button>
         )
     }
 
-    const handleQuestion = (i, value) => {
+    const handleQuestion = (i, value, num) => {
         if (i.type === 'Drop Down')
-            return <Drop question={value} admin={handleAdminOptions} />
+            return <Drop question={value} admin={handleAdminOptions} num={num} />
         if (i.type === 'Single Line')
-            return <Single question={value} admin={handleAdminOptions} />
+            return <Single question={value} admin={handleAdminOptions} num={num} />
         if (i.type === 'MCQ')
-            return <Radio question={value} admin={handleAdminOptions} />
+            return <Radio question={value} admin={handleAdminOptions} num={num} />
     }
 
     return (
