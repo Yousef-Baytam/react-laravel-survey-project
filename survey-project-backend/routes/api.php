@@ -42,7 +42,7 @@ Route::group(['prefix' => 'v1'], function () {
                     Route::patch('/{id}', [AdminQuestionController::class, 'updateQuestion']);
                     Route::delete('/{id}', [AdminQuestionController::class, 'deleteQuestion']);
                 });
-                Route::group(['prefix' => 'questions'], function () {
+                Route::group(['prefix' => 'values'], function () {
                     Route::post('/new/{id}', [AdminValueController::class, 'addValue']);
                     Route::patch('/{id}', [AdminValueController::class, 'updateValue']);
                     Route::delete('/{id}', [AdminValueController::class, 'deleteValue']);
