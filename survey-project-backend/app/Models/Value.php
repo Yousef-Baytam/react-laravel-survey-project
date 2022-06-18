@@ -11,7 +11,7 @@ class Value extends Model
 
     protected $fillable = [
         'value',
-        'qeustion_id'
+        'question_id'
     ];
 
     protected $table = 'values';

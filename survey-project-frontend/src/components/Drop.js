@@ -10,7 +10,7 @@ export default function Drop(props) {
 
     const handleDropDown = () => {
         return (
-            options.map((i) => <option key={i.id} value={i.value} id={i.id}>{i.value}</option>)
+            options.map((i) => (<option key={i.id} value={i.value} id={i.id}>{i.value}</option>))
         )
     }
 
@@ -28,7 +28,7 @@ export default function Drop(props) {
                 data: data,
             })
             console.log(res)
-            setOptions([...options, optionText])
+            setOptions([...options, { 'value': optionText, 'id': res.data.value.id }])
         }
         catch (e) {
             console.log(e)
@@ -41,7 +41,7 @@ export default function Drop(props) {
             {currentUser.user.payload.user_type == 'admin' && props.admin(props.num)}
             <br />
             <input style={{ width: '20%', }} onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
-            <button onClick={() => { createValue(props.num, optionText); }}>Add option</button>
+            <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br />
             <select id={props.question}>
                 {handleDropDown()}
             </select>

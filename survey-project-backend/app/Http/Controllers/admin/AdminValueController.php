@@ -10,13 +10,14 @@ class AdminValueController extends Controller
 {
     public function addValue(Request $request, $id)
     {
-        Value::create([
+        $value = Value::create([
             'value' => $request->value,
-            'qeustion_id' => $id,
+            'question_id' => $id,
         ]);
 
         return response()->json([
             "status" => "Success",
+            "value" => $value
         ], 200);
     }
 
