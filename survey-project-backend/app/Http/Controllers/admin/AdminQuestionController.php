@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\Question;
 use App\Models\Question_type;
+use App\Models\Value;
 
 class AdminQuestionController extends Controller
 {
@@ -40,7 +41,10 @@ class AdminQuestionController extends Controller
 
     public function deleteQuestion($id)
     {
+        $values = Question::where('id', $id)->with('values')->get();
         Question::find($id)->delete();
+        foreach ($values[0]->values as $i)
+            Value::find($i->id)->delete();
 
         return response()->json([
             "status" => "Success",
