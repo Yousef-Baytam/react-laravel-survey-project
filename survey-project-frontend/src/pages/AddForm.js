@@ -6,12 +6,33 @@ import Multiline from '../components/Multiline'
 import Radio from '../components/Radio'
 import Single from '../components/Single'
 import '../App.css'
+import axios from 'axios'
 
 export default function AddForm() {
 
     const [formName, setFormName] = useState('')
     const [formDescription, setFormDescription] = useState('')
+    const [formCreated, setFormCreated] = useState(false)
     const [questions, setQuestions] = useState([])
+
+    const createForm = async () => {
+        let data = new FormData()
+        data.append('name', formName)
+        data.append('description', formDescription)
+        try {
+            let res = await axios({
+                url: "http://127.0.0.1:8000/api/v1/admin/forms/new",
+                method: "POST",
+                data: data,
+            })
+            localStorage.setItem('token', res.data.authorisation.token)
+            setFormCreated(true)
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
 
     const handleQuestion = (i, value) => {
         if (i.type === 'Drop Down')
