@@ -7,7 +7,6 @@ import Radio from '../components/Radio'
 import Single from '../components/Single'
 import '../App.css'
 import axios from 'axios'
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default function AddForm() {
 
@@ -41,7 +40,7 @@ export default function AddForm() {
 
     const createQuestion = async () => {
         let data = new FormData()
-        data.append('question_type', document.querySelector('select').value ?? '')
+        data.append('question_type', document.querySelector('#questionType').value ?? '')
         data.append('question', questionText ?? '')
         try {
             let res = await axios({
@@ -52,7 +51,7 @@ export default function AddForm() {
                 },
                 data: data,
             })
-            setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': res.data.question.id, 'question': questionText }])
+            setQuestions([...questions, { 'type': document.querySelector('#questionType').value, 'num': res.data.question.id, 'question': questionText }])
         }
         catch (e) {
             console.log(e);
@@ -102,7 +101,7 @@ export default function AddForm() {
         if (formCreated)
             return <div>
                 <input placeholder='Question' onChange={(e) => setQuestionText(e.target.value)} />
-                <select>
+                <select id={'questionType'}>
                     <option value={'Single Line'}>Single Line</option>
                     <option value={'Drop Down'}>Drop Down</option>
                     <option value={'MCQ'}>MCQ</option>
