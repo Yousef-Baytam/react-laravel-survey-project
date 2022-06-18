@@ -91,7 +91,7 @@ export default function AddForm() {
                     <option value={'Drop Down'}>Drop Down</option>
                     <option value={'MCQ'}>MCQ</option>
                 </select>
-                <button onClick={() => { setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': questions.length }]); createQuestion() }}>Add Question</button>
+                <button onClick={() => { setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': questions.length, 'question': questionText }]); createQuestion() }}>Add Question</button>
             </div>
     }
 
