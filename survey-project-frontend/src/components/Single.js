@@ -24,7 +24,7 @@ export default function Single(props) {
         <div key={props.num}>
             <label htmlFor={props.question}>{props.question}</label>
             {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
-            <input placeholder='Answer' id={props.question} onChange={(e) => { props.setAnswer && handleAnswer(e.target.value) }} />
+            <input placeholder='Answer' id={props.question} onChange={(e) => props.handleAnswer(e.target.value, props.num)} />
         </div>
     )
 }

@@ -52,29 +52,14 @@ export default function Drop(props) {
             )
     }
 
-    const handleAnswer = (ans) => {
-        let numb = 0
-        if (props.answer) {
-            let arr = props.answer
-            for (let i of props.answer) {
-                if (i.id == props.num) {
-                    numb += 1
-                    arr = arr.filter((e) => e.id != i.id)
-                    arr.push({ 'id': props.num, 'answer': ans })
-                    props.setAnswer(arr)
-                }
-            }
-        }
-        !numb && props.setAnswer([...props.answer, { 'id': props.num, 'answer': ans }])
-    }
-
     return (
         <div key={props.num}>
             <label htmlFor={props.question}>{props.question}</label>
             {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <br />
             {adminTools()}
-            <select id={props.question} onChange={(e) => { props.setAnswer && handleAnswer(e.target.value) }}>
+            <select id={props.question} onChange={(e) => props.handleAnswer(e.target.value, props.num)}>
+                <option selected>None</option>
                 {handleDropDown()}
             </select>
         </div>

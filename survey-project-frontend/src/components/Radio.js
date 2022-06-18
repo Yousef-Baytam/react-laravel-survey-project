@@ -11,7 +11,7 @@ export default function Radio(props) {
     const handleRadio = () => {
         return (
             options.map((i) => (<>
-                <input style={{ width: '2em' }} type={'radio'} name={props.num} id={i.id} key={i.id} value={i.value} onChange={(e) => { props.setAnswer && handleAnswer(e.target.value) }} />
+                <input style={{ width: '2em' }} type={'radio'} name={props.num} id={i.id} key={i.id} value={i.value} onChange={(e) => props.handleAnswer(e.target.value, props.num)} />
                 <label htmlFor={i.id} key={`1${ i.id }`}>{i.value}</label>
                 <br />
             </>))
@@ -54,22 +54,6 @@ export default function Radio(props) {
                 <><input style={{ width: '20%', }} onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
                     <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br /></>
             )
-    }
-
-    const handleAnswer = (ans) => {
-        let numb = 0
-        if (props.answer) {
-            let arr = props.answer
-            for (let i of props.answer) {
-                if (i.id == props.num) {
-                    numb += 1
-                    arr = arr.filter((e) => e.id != i.id)
-                    arr.push({ 'id': props.num, 'answer': ans })
-                    props.setAnswer(arr)
-                }
-            }
-        }
-        !numb && props.setAnswer([...props.answer, { 'id': props.num, 'answer': ans }])
     }
 
     return (

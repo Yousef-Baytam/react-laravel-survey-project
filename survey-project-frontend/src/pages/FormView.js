@@ -25,14 +25,31 @@ export default function FormView(props) {
         setFormQuestions(arr)
     }
 
+    const handleAnswer = (ans, id) => {
+        console.log('hello')
+        let numb = 0
+        if (answers) {
+            let arr = answers
+            for (let i of answers) {
+                if (i.id == id) {
+                    numb += 1
+                    arr = arr.filter((e) => e.id != i.id)
+                    arr.push({ 'id': id, 'answer': ans })
+                    setAnswers(arr)
+                }
+            }
+        }
+        !numb && setAnswers([...answers, { 'id': id, 'answer': ans }])
+    }
+
     const handleQuestionType = (i, value, num, options = null) => {
         console.log(i)
         if (i === 'Drop Down')
-            return <Drop question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} />
+            return <Drop question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
         if (i === 'Single Line')
-            return <Single question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} />
+            return <Single question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
         if (i === 'MCQ')
-            return <Radio question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} />
+            return <Radio question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
     }
 
     useEffect(() => {
