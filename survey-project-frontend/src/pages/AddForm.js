@@ -52,8 +52,23 @@ export default function AddForm() {
                 },
                 data: data,
             })
-            console.log(res)
             setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': res.data.question.id, 'question': questionText }])
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    const deleteQuestion = async (id) => {
+        console.log(id)
+        try {
+            let res = await axios({
+                url: `http://127.0.0.1:8000/api/v1/admin/questions/${ id }`,
+                method: "Delete",
+                headers: {
+                    Authorization: `bearer ${ localStorage.getItem('token') }`
+                },
+            })
         }
         catch (e) {
             console.log(e);
@@ -99,7 +114,7 @@ export default function AddForm() {
 
     const handleAdminOptions = (num) => {
         return (
-            <button onClick={() => setQuestions(questions.filter((i) => i.num != num))}>Delete</button>
+            <button onClick={() => { setQuestions(questions.filter((i) => i.num != num)); deleteQuestion(num) }}>Delete</button>
         )
     }
 
