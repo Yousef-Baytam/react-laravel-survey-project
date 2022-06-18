@@ -9,6 +9,7 @@ import Header from './components/Header'
 import AddForm from './pages/AddForm'
 import { useSelector, useDispatch } from 'react-redux'
 import { storeUser, currentUser } from './features/userSlice'
+import FormView from './pages/FormView'
 
 function App() {
   const dispatch = useDispatch()
@@ -74,7 +75,7 @@ function App() {
           ></Route>
           <Route
             path="/forms/:id"
-            element={<Forms />}
+            element={<FormView />}
           ></Route>
           <Route
             path="/forms/new"
