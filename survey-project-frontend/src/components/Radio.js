@@ -12,7 +12,7 @@ export default function Radio(props) {
         return (
             options.map((i) => (<>
                 <input style={{ width: '2em' }} type={'radio'} name={props.num} id={i.id} key={i.id} value={i.value} />
-                <label htmlFor={i.id} key={i.id}>{i.value}</label>
+                <label htmlFor={i.id} key={`1${ i.id }`}>{i.value}</label>
                 <br />
             </>))
         )

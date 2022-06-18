@@ -28,11 +28,11 @@ export default function FormView(props) {
     const handleQuestionType = (i, value, num, options = null) => {
         console.log(i)
         if (i === 'Drop Down')
-            return <Drop question={value} num={num} parentOptions={options} />
+            return <Drop question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} />
         if (i === 'Single Line')
-            return <Single question={value} num={num} parentOptions={options} />
+            return <Single question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} />
         if (i === 'MCQ')
-            return <Radio question={value} num={num} parentOptions={options} />
+            return <Radio question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} />
     }
 
     useEffect(() => {
@@ -52,6 +52,9 @@ export default function FormView(props) {
                 {form.description}
             </div>
             {formQuestions.map((i) => handleQuestionType(i.question_types.question_type, i.question, i.id, i.values))}
+            <div>
+                <button>Submit answers</button>
+            </div>
         </div>
     )
 }
