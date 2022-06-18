@@ -11,7 +11,7 @@ class AdminFormController extends Controller
 {
     public function addForm(Request $request)
     {
-        Survey::create([
+        $survey = Survey::create([
             'name' => $request->name,
             'description' => $request->description,
             'is_open' => true,
@@ -19,6 +19,7 @@ class AdminFormController extends Controller
 
         return response()->json([
             "status" => "Success",
+            "survey" => $survey
         ], 200);
     }
 

@@ -13,6 +13,7 @@ export default function AddForm() {
     const [formName, setFormName] = useState('')
     const [formDescription, setFormDescription] = useState('')
     const [formCreated, setFormCreated] = useState(false)
+    const [newFormId, setNewFormId] = useState(0)
     const [questions, setQuestions] = useState([])
 
     const createForm = async () => {
@@ -29,10 +30,15 @@ export default function AddForm() {
                 data: data,
             })
             setFormCreated(true)
+            setNewFormId(res.data.survey.id)
         }
         catch (e) {
             console.log(e);
         }
+    }
+
+    const createQuestion = async () => {
+
     }
 
     const handleFormTitle = () => {
