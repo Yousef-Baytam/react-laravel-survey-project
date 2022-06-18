@@ -7,7 +7,7 @@ export default function Single(props) {
     return (
         <div>
             <label htmlFor={props.question}>{props.question}</label>
-            {currentUser.user.payload.user_type == 'admin' && props.admin(props.num)}
+            {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <input placeholder='Answer' id={props.question} />
         </div>
     )

@@ -42,7 +42,7 @@ export default function Radio(props) {
     return (
         <div>
             <label htmlFor={props.question}>{props.question}</label>
-            {currentUser.user.payload.user_type == 'admin' && props.admin(props.num)}
+            {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <br />
             <input style={{ width: '20%', }} onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
             <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br />
