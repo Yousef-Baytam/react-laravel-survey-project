@@ -25,14 +25,14 @@ export default function FormView(props) {
         setFormQuestions(arr)
     }
 
-    const handleQuestionType = (i, value, num) => {
+    const handleQuestionType = (i, value, num, options = null) => {
         console.log(i)
         if (i === 'Drop Down')
-            return <Drop question={value} num={num} />
+            return <Drop question={value} num={num} parentOptions={options} />
         if (i === 'Single Line')
-            return <Single question={value} num={num} />
+            return <Single question={value} num={num} parentOptions={options} />
         if (i === 'MCQ')
-            return <Radio question={value} num={num} />
+            return <Radio question={value} num={num} parentOptions={options} />
     }
 
     useEffect(() => {
@@ -51,7 +51,7 @@ export default function FormView(props) {
             <div>
                 {form.description}
             </div>
-            {formQuestions.map((i) => handleQuestionType(i.question_types.question_type, i.question, i.id))}
+            {formQuestions.map((i) => handleQuestionType(i.question_types.question_type, i.question, i.id, i.values))}
         </div>
     )
 }

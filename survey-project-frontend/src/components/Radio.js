@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 
@@ -12,7 +12,7 @@ export default function Radio(props) {
         return (
             options.map((i) => (<>
                 <input style={{ width: '2em' }} type={'radio'} name={props.num} id={i.id} key={i.id} value={i.value} />
-                <label htmlFor={i.id}>{i.value}</label>
+                <label htmlFor={i.id} key={i.id}>{i.value}</label>
                 <br />
             </>))
         )
@@ -39,13 +39,29 @@ export default function Radio(props) {
         }
     }
 
+    useEffect(() => {
+        if (!props.parentOptions)
+            return
+        let arr = []
+        for (let i of props.parentOptions)
+            arr.push({ 'value': i.value, 'id': i.id })
+        setOptions(arr)
+    }, [])
+
+    const adminTools = () => {
+        if (props.admin)
+            return (
+                <><input style={{ width: '20%', }} onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
+                    <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br /></>
+            )
+    }
+
     return (
-        <div>
+        <div key={props.num}>
             <label htmlFor={props.question}>{props.question}</label>
             {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <br />
-            <input style={{ width: '20%', }} onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
-            <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br />
+            {adminTools()}
             <div>
                 {handleRadio()}
             </div>

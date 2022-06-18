@@ -44,7 +44,7 @@ export default function Drop(props) {
     }
 
     return (
-        <div>
+        <div key={props.num}>
             <label htmlFor={props.question}>{props.question}</label>
             {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <br />
