@@ -4,8 +4,11 @@ import { useState, useEffect } from "react"
 import Submit from '../components/Submit'
 import axios from 'axios'
 import { Link, useNavigate } from "react-router-dom";
+import { useSelector, useDispatch } from 'react-redux'
+import { storeUser, currentUser } from '../features/userSlice'
 
 export default function LogIn(props) {
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
     const [email, setEmail] = useState('')
@@ -23,6 +26,7 @@ export default function LogIn(props) {
             })
             localStorage.setItem('token', res.data.authorisation.token)
             props.setLoggedIn(true)
+            dispatch(storeUser(res.data.user))
         }
         catch (e) {
             console.log(e);

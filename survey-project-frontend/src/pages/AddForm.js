@@ -95,13 +95,19 @@ export default function AddForm() {
             </div>
     }
 
+    const handleAdminOptions = () => {
+        return (
+            <div>helo</div>
+        )
+    }
+
     const handleQuestion = (i, value) => {
         if (i.type === 'Drop Down')
-            return <Drop question={value} />
+            return <Drop question={value} admin={handleAdminOptions} />
         if (i.type === 'Single Line')
-            return <Single question={value} />
+            return <Single question={value} admin={handleAdminOptions} />
         if (i.type === 'MCQ')
-            return <Radio question={value} />
+            return <Radio question={value} admin={handleAdminOptions} />
     }
 
     return (

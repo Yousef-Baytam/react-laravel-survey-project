@@ -37,6 +37,7 @@ function App() {
       if (res.data) {
         setUser(res.data)
         setLoggedIn(true)
+        dispatch(storeUser(res.data))
       }
     }
     getUser()
@@ -50,7 +51,7 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       navigate('/forms')
-      dispatch(storeUser(user))
+      console.log(currentUser)
     }
   }, [loggedIn])
 
