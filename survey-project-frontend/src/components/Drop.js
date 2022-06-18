@@ -1,4 +1,4 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useSelector, useDispatch } from 'react-redux'
 import axios from 'axios'
 
@@ -34,6 +34,15 @@ export default function Drop(props) {
             console.log(e)
         }
     }
+
+    useEffect(() => {
+        if (!props.parentOptions)
+            return
+        let arr = []
+        for (let i of props.parentOptions)
+            arr.push({ 'value': i.value, 'id': i.id })
+        setOptions(arr)
+    }, [])
 
     const adminTools = () => {
         if (props.admin)
