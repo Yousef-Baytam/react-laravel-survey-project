@@ -97,11 +97,11 @@ export default function AddForm() {
 
     const handleQuestion = (i, value) => {
         if (i.type === 'Drop Down')
-            return <Drop value={value} />
+            return <Drop question={value} />
         if (i.type === 'Single Line')
-            return <Single />
+            return <Single question={value} />
         if (i.type === 'MCQ')
-            return <Radio />
+            return <Radio question={value} />
     }
 
     return (
