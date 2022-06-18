@@ -5,7 +5,6 @@ import List from '../components/List'
 import Multiline from '../components/Multiline'
 import Radio from '../components/Radio'
 import Single from '../components/Single'
-import '../App.css'
 import axios from 'axios'
 
 export default function AddForm() {
