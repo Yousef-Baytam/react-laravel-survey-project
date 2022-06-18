@@ -48,8 +48,10 @@ function App() {
   }, [loggedIn])
 
   useEffect(() => {
-    if (loggedIn)
+    if (loggedIn) {
       navigate('/forms')
+      dispatch(storeUser(user))
+    }
   }, [loggedIn])
 
   return (

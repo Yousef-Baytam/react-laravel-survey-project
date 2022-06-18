@@ -24,7 +24,7 @@ export default function AddForm() {
                 url: "http://127.0.0.1:8000/api/v1/admin/forms/new",
                 method: "POST",
                 headers: {
-                    Authorization: 'bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJodHRwOi8vMTI3LjAuMC4xOjgwMDAvYXBpL2xvZ2luIiwiaWF0IjoxNjU1NTQxNTE3LCJleHAiOjE2NTU1NDUxMTcsIm5iZiI6MTY1NTU0MTUxNywianRpIjoidFpIOXpmdWFucTFqeXhrRyIsInN1YiI6IjIiLCJwcnYiOiIyM2JkNWM4OTQ5ZjYwMGFkYjM5ZTcwMWM0MDA4NzJkYjdhNTk3NmY3In0.sHQgoJ8CIMnpc4sq73fJg5LhZi5UVNcD4Z8O0Bz45dc'
+                    Authorization: `bearer ${ localStorage.getItem('token') }`
                 },
                 data: data,
             })
