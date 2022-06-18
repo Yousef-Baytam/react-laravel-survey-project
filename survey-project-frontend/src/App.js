@@ -1,14 +1,18 @@
 import './App.css'
 import { useState, useEffect } from "react"
-import { BrowserRouter, Routes, Route, useNavigate, Navigate, Location, useLocation } from "react-router-dom"
+import { Routes, Route, useNavigate } from "react-router-dom"
 import axios from 'axios'
 import LogIn from "./pages/LogIn"
 import Register from './pages/Register'
 import Forms from './pages/Forms'
 import Header from './components/Header'
 import AddForm from './pages/AddForm'
+import { Provider } from 'react-redux'
+import store from './store'
+import { useSelector, useDispatch } from 'react-redux'
 
 function App() {
+  const dispatch = useDispatch()
 
   const navigate = useNavigate()
   const [forms, setForms] = useState([])
