@@ -12,14 +12,15 @@ class AdminQuestionController extends Controller
 
     public function addQuestion(Request $request, $id)
     {
-        Question::create([
+        $question = Question::create([
             'question' => $request->question,
             'surveys_id' => $id,
-            'question_type_id' => $request->question_type_id
+            'question_type_id' => Question_type::where('question_type', $request->question_type)->get()[0]->id,
         ]);
 
         return response()->json([
             "status" => "Success",
+            "question" => $question
         ], 200);
     }
 

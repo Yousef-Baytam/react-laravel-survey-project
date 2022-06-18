@@ -15,6 +15,7 @@ export default function AddForm() {
     const [formCreated, setFormCreated] = useState(false)
     const [newFormId, setNewFormId] = useState(0)
     const [questions, setQuestions] = useState([])
+    const [questionText, setQuestionText] = useState('')
 
     const createForm = async () => {
         let data = new FormData()
@@ -38,7 +39,23 @@ export default function AddForm() {
     }
 
     const createQuestion = async () => {
-
+        let data = new FormData()
+        data.append('question_type', document.querySelector('select').value ?? '')
+        data.append('question', questionText ?? '')
+        try {
+            let res = await axios({
+                url: `http://127.0.0.1:8000/api/v1/admin/questions/new/${ newFormId }`,
+                method: "POST",
+                headers: {
+                    Authorization: `bearer ${ localStorage.getItem('token') }`
+                },
+                data: data,
+            })
+            console.log(res)
+        }
+        catch (e) {
+            console.log(e);
+        }
     }
 
     const handleFormTitle = () => {
@@ -68,13 +85,13 @@ export default function AddForm() {
             return <div><button onClick={() => createForm()}>Create a Form</button></div>
         if (formCreated)
             return <div>
-                <input placeholder='Question' />
+                <input placeholder='Question' onChange={(e) => setQuestionText(e.target.value)} />
                 <select>
                     <option value={'Single Line'}>Single Line</option>
                     <option value={'Drop Down'}>Drop Down</option>
                     <option value={'MCQ'}>MCQ</option>
                 </select>
-                <button onClick={() => { setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': questions.length }]) }}>Add Question</button>
+                <button onClick={() => { setQuestions([...questions, { 'type': document.querySelector('select').value, 'num': questions.length }]); createQuestion() }}>Add Question</button>
             </div>
     }
 
