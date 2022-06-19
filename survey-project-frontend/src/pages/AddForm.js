@@ -74,14 +74,14 @@ export default function AddForm() {
 
     const handleFormTitle = () => {
         if (!formCreated)
-            return (<>
+            return (<div className='form-header'>
                 <div>
                     <Input type={'text'} name={'formName'} placeholder={'Form Title'} value={formName} setValue={setFormName} />
                 </div>
                 <div>
                     <Multiline name={'formName'} placeholder={'Form Description'} value={formDescription} setValue={setFormDescription} />
                 </div>
-            </>)
+            </div>)
 
         if (formCreated)
             return (<>
@@ -126,10 +126,12 @@ export default function AddForm() {
 
     return (
         <div className='container'>
-            {handleFormTitle()}
-            {handleFormCreated()}
-            <div>
-                <List questions={questions} setQuestions={setQuestions} handleQuestion={handleQuestion} />
+            <div className='content-wrapper'>
+                {handleFormTitle()}
+                {handleFormCreated()}
+                <div>
+                    <List questions={questions} setQuestions={setQuestions} handleQuestion={handleQuestion} />
+                </div>
             </div>
         </div>
     )

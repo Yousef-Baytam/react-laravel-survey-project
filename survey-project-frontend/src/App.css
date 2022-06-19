@@ -205,6 +205,15 @@ button:hover {
   background-color: red !important;
 }
 
+.form-header {
+  width: calc(100% - 2em);
+  padding: 1em;
+  border-radius: 10px;
+  margin: 1em;
+  background-color: rgb(226, 226, 226);
+}
+
+
 @media (max-width:1200px) {
   .container {
     margin-top: 6em;
