@@ -25,6 +25,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: flex-start;
+  transition: all 200ms ease;
 }
 
 input,
@@ -118,6 +119,7 @@ form div div {
   border-radius: 10px;
   align-self: flex-start;
   margin-top: 5em;
+  width: 800px;
 }
 
 .content-wrapper {
@@ -201,4 +203,25 @@ button:hover {
 
 .closed {
   background-color: red !important;
+}
+
+@media (max-width:1200px) {
+  .container {
+    margin-top: 6em;
+    width: 600px;
+    font-size: 0.9em;
+  }
+
+  button {
+    font-size: 0.9em;
+    width: 6em;
+  }
+}
+
+@media (max-width:800px) {
+  .container {
+    margin-top: 7em;
+    width: 400px;
+    font-size: 0.7em;
+  }
 }
