@@ -30,7 +30,6 @@ export default function FormView(props) {
     }
 
     const handleAnswer = (ans, id) => {
-        console.log('hello')
         let numb = 0
         if (answers) {
             let arr = answers
@@ -47,7 +46,6 @@ export default function FormView(props) {
     }
 
     const handleQuestionType = (i, value, num, options = null) => {
-        console.log(i)
         if (i === 'Drop Down')
             return <Drop question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
         if (i === 'Single Line')
@@ -71,7 +69,6 @@ export default function FormView(props) {
                     },
                     data: data,
                 })
-                console.log(res)
             }
             catch (e) {
                 console.log(e);

@@ -23,7 +23,6 @@ export default function Header(props) {
     const setTheme = (e) => {
         localStorage.setItem('theme', e)
         let themes = props.themes
-        console.log(themes)
         let r = document.querySelector(':root')
         if (e == 'darkblue') {
             r.style.setProperty('--main-bg-color', themes.darkblue.main)

@@ -83,7 +83,6 @@ function App() {
   useEffect(() => {
     if (loggedIn) {
       navigate('/forms')
-      console.log(currentUser)
     }
   }, [loggedIn])
 
@@ -96,7 +95,6 @@ function App() {
           Authorization: `bearer ${ localStorage.getItem('token') }`
         },
       })
-      console.log(res)
       setAnsweredForms(res.data.answeredForms)
     }
     catch (e) {

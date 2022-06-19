@@ -15,7 +15,6 @@ export default function Drop(props) {
     }
 
     const createValue = async (id, value) => {
-        console.log(id, value)
         let data = new FormData()
         data.append('value', value ?? '')
         try {
@@ -27,7 +26,6 @@ export default function Drop(props) {
                 },
                 data: data,
             })
-            console.log(res)
             setOptions([...options, { 'value': optionText, 'id': res.data.value.id }])
         }
         catch (e) {
