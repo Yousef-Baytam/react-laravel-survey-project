@@ -60,10 +60,10 @@ export default function Header(props) {
     return (
         <div className={window.location.href == 'http://localhost:3000/' || window.location.href == 'http://localhost:3000/register' ? 'd-none nav' : 'nav'} >
             <div className='nav-links'>
-                <div>
-                    <Link to={'/forms'}>All Forms</Link>
+                <div className={window.location.href == 'http://localhost:3000/forms' && 'active'}>
+                    <Link to={'/forms'} >All Forms</Link>
                 </div>
-                <div className={user && user == 'admin' ? '' : 'd-none'}>
+                <div className={`${ user && user == 'admin' ? '' : 'd-none' } ${ window.location.href == 'http://localhost:3000/forms/new' && 'active' }`}>
                     <Link to={'/forms/new'}>Add Form</Link>
                 </div>
             </div>

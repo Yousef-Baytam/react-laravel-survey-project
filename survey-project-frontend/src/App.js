@@ -25,10 +25,10 @@ function App() {
   const themes = {
     'darkblue': { 'main': '#000058', 'primary': 'black', 'text': 'white' },
     'lightblue': { 'main': 'rgb(92, 194, 253)', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
-    'purple': { 'main': '#6a0dad', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
-    'maroon': { 'main': '#800000', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
-    'dark': { 'main': 'black', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
-    'light': { 'main': 'white', 'primary': 'rgb(32, 172, 253)', 'text': 'black' }
+    'purple': { 'main': '#6a0dad', 'primary': '#301934', 'text': 'white' },
+    'maroon': { 'main': '#800000', 'primary': '#660000', 'text': 'white' },
+    'dark': { 'main': 'black', 'primary': 'gray', 'text': 'white' },
+    'light': { 'main': 'white', 'primary': 'gray', 'text': 'black' }
   }
 
   const getAllForms = async () => {
