@@ -12,9 +12,13 @@ export default function Forms(props) {
                 {props.forms.map((i) =>
                     <div className={`card-container`} key={i.id} >
                         <div className={`card ${ i.is_open ? 'open' : 'closed' }`}>
-                            <div>Title: {i.name}</div>
-                            <div>Description: {i.description}</div>
-                            {!props.answeredForms.includes(i.id) && i.is_open && <button onClick={() => navigate(`/forms/${ i.id }`)}>Fill Now</button>}
+                            <div>
+                                <div>Title: {i.name}</div>
+                                <div>Description: {i.description}</div>
+                            </div>
+                            <div>
+                                {!props.answeredForms.includes(i.id) && i.is_open && <button onClick={() => navigate(`/forms/${ i.id }`)}>Fill Now</button>}
+                            </div>
                         </div>
                     </div>)
                 }

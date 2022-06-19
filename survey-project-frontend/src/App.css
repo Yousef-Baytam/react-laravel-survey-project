@@ -144,3 +144,22 @@ form div div {
   height: 6em;
   border-radius: 10px;
 }
+
+.card {
+  display: flex;
+  justify-content: space-between;
+}
+
+button {
+  border-radius: 5px;
+  border: 0;
+  padding: 0.5em 1em;
+  background-color: rgb(92, 194, 253);
+  color: white;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+button:hover {
+  border: 2px solid black;
+}
