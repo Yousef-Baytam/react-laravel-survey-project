@@ -139,10 +139,12 @@ form div div {
 .card-container {
   width: calc(100% - 0.8em);
   padding: 1em;
+  padding-left: 0;
   margin: 0.2em;
   background-color: white;
   height: 6em;
   border-radius: 10px;
+  overflow: hidden;
 }
 
 .card {
@@ -162,4 +164,18 @@ button {
 
 button:hover {
   border: 2px solid black;
+}
+
+.mark {
+  background-color: red;
+  width: 5px;
+  height: 250%;
+  margin-right: 1.5em;
+  position: relative;
+  top: -20px;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
 }
