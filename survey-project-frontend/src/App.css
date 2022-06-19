@@ -10,6 +10,12 @@
   align-items: center;
   height: 100vh;
   width: 100vw;
+  background-image: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.5)), url('./assets/celpax-ZoGOw9WYMtQ-unsplash.jpg');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  height: 100vh;
+  overflow: hidden
 }
 
 .container {
@@ -68,7 +74,7 @@ a {
 }
 
 form {
-  background-color: rgb(37, 150, 255);
+  background-color: rgba(209, 209, 209, 0.562);
   width: 350px;
   border-radius: 5px;
 }
