@@ -11,19 +11,19 @@ export default function Header(props) {
         props.setLoggedIn(false)
         navigate('/')
     }
-
+    console.log(currentUser)
     return (
         <div className={window.location.href == 'http://localhost:3000/' || window.location.href == 'http://localhost:3000/register' ? 'd-none nav' : 'nav'} >
             <div className='nav-links'>
                 <div>
                     <Link to={'/forms'}>All Forms</Link>
                 </div>
-                <div className={currentUser && currentUser.user.payload.user_type == 'admin' ? '' : 'd-none'}>
+                {/* <div className={currentUser.user != {} && currentUser.user.payload.user_type == 'admin' ? '' : 'd-none'}>
                     <Link to={'/forms/new'}>Add Form</Link>
                 </div>
-                <div className={currentUser && currentUser.user.payload.user_type == 'admin' ? '' : 'd-none'}>
+                <div className={currentUser.user != {} && currentUser.user.payload.user_type == 'admin' ? '' : 'd-none'}>
                     <Link to={'/forms'}>Answers</Link>
-                </div>
+                </div> */}
             </div>
             <div className='logout'>
                 <div onClick={handleLogout}>Logout</div>
