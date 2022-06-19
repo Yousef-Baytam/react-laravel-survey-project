@@ -70,12 +70,12 @@ export default function Header(props) {
             <div className='nav-links-end'>
                 <div className='theme'>Theme
                     <div className='menu'>
-                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>darkblue</div>
-                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>lightblue</div>
-                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>purple</div>
-                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>maroon</div>
-                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>dark</div>
-                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>light</div>
+                        <div className='menu-box' style={{ backgroundColor: '#000058', borderRadius: '5px', color: 'white' }} onClick={(e) => { setTheme(e.target.innerText) }}>darkblue</div>
+                        <div className='menu-box' style={{ backgroundColor: 'rgb(92, 194, 253)', color: 'white' }} onClick={(e) => { setTheme(e.target.innerText) }}>lightblue</div>
+                        <div className='menu-box' style={{ backgroundColor: '#6a0dad', color: 'white' }} onClick={(e) => { setTheme(e.target.innerText) }}>purple</div>
+                        <div className='menu-box' style={{ backgroundColor: '#800000', color: 'white' }} onClick={(e) => { setTheme(e.target.innerText) }}>maroon</div>
+                        <div className='menu-box' style={{ backgroundColor: 'black', color: 'white' }} onClick={(e) => { setTheme(e.target.innerText) }}>dark</div>
+                        <div className='menu-box' style={{ backgroundColor: 'white', borderRadius: '5px', color: 'black' }} onClick={(e) => { setTheme(e.target.innerText) }}>light</div>
                     </div>
                 </div>
                 <div className='logout'>
