@@ -35,6 +35,7 @@ textarea {
   padding: 0.3em;
   margin: 1em 0 1em 0;
   width: 100%;
+  height: 3em;
 }
 
 .nav {
@@ -77,9 +78,9 @@ a {
 }
 
 form {
-  background-color: rgba(0, 0, 0, 0.562);
+  background-color: rgba(255, 255, 255, 0.858);
   width: 350px;
-  border-radius: 5px;
+  border-radius: 10px;
 }
 
 form div {
@@ -88,7 +89,7 @@ form div {
 
 form div div {
   text-align: center;
-  color: white;
+  color: balck;
 }
 
 .title {
@@ -96,4 +97,17 @@ form div div {
   font-size: 3em;
   color: white;
   font-weight: bold;
+  margin-bottom: 1em;
+}
+
+.submit {
+  width: 150px;
+  align-self: center;
+  transition: all 200ms ease;
+  cursor: pointer;
+}
+
+.submit:hover {
+  color: white;
+  background-color: black;
 }

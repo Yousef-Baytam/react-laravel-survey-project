@@ -41,6 +41,9 @@ export default function Register(props) {
 
     return (
         <div>
+            <div className='title'>
+                Survey Champ
+            </div>
             <form>
                 <div>
                     <Input type={'text'} name={'name'} placeholder={'Name'} value={name} setValue={setName} />
