@@ -69,6 +69,11 @@ textarea {
   color: var(--text);
 }
 
+.nav-links-end {
+  display: flex;
+  align-items: center;
+}
+
 a {
   text-decoration: none;
   color: var(--text);
@@ -295,6 +300,14 @@ button:hover {
 
 .active {
   background-color: var(--secondary-bg-color);
+}
+
+.theme {
+  margin-right: 1em;
+  background-color: var(--main-bg-color);
+  padding: 0.5em 1em;
+  border-radius: 5px;
+  color: var(--text);
 }
 
 @media (max-width:1200px) {

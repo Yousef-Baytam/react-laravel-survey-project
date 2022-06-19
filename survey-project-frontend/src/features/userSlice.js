@@ -4,6 +4,7 @@ export const userSlice = createSlice({
     name: 'user',
     initialState: {
         user: {},
+        theme: 'lightblue'
     },
     reducers: {
         storeUser: (state, data) => {
@@ -13,11 +14,15 @@ export const userSlice = createSlice({
             // immutable state based off those changes
             state.user = data
         },
+        storeTheme: (state, data) => {
+            state.theme = data
+        },
     },
 })
 
 // Action creators are generated for each case reducer function
 export const currentUser = (state) => state.user.value
+export const currentTheme = (state) => state.theme.value
 
 export const { storeUser } = userSlice.actions
 

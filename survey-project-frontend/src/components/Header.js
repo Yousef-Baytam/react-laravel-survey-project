@@ -6,6 +6,8 @@ export default function Header(props) {
     const currentUser = useSelector((state) => state.user)
     const navigate = useNavigate()
 
+    const themes = { 'darkblue': '#000058' }
+
     const handleLogout = () => {
         localStorage.removeItem('token')
         props.setLoggedIn(false)
@@ -29,8 +31,11 @@ export default function Header(props) {
                     <Link to={'/forms/new'}>Add Form</Link>
                 </div>
             </div>
-            <div className='logout'>
-                <div onClick={handleLogout}>Logout</div>
+            <div className='nav-links-end'>
+                <div className='theme'>Theme</div>
+                <div className='logout'>
+                    <div onClick={handleLogout}>Logout</div>
+                </div>
             </div>
         </div >
     )
