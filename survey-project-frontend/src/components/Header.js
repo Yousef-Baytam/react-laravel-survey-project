@@ -28,9 +28,6 @@ export default function Header(props) {
                 <div className={user && user == 'admin' ? '' : 'd-none'}>
                     <Link to={'/forms/new'}>Add Form</Link>
                 </div>
-                <div className={user && user == 'admin' ? '' : 'd-none'}>
-                    <Link to={'/forms'}>Answers</Link>
-                </div>
             </div>
             <div className='logout'>
                 <div onClick={handleLogout}>Logout</div>

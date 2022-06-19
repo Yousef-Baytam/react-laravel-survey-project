@@ -1,3 +1,5 @@
+:root {}
+
 * {
   box-sizing: border-box;
   margin: 0;
@@ -55,7 +57,7 @@ textarea {
 
 .nav-links div,
 .logout {
-  margin: 0.2em;
+  margin: 0.6em;
   background-color: rgb(92, 194, 253);
   border-radius: 5px;
   cursor: pointer;
@@ -287,6 +289,7 @@ button:hover {
   margin: 0 1em 1em 0;
 }
 
+.active {}
 
 @media (max-width:1200px) {
   .container {
