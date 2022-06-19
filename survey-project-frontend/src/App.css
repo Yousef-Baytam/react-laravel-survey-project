@@ -213,6 +213,22 @@ button:hover {
   background-color: rgb(226, 226, 226);
 }
 
+.form-header input,
+.form-header textarea {
+  padding: 1em;
+  border: 0;
+}
+
+.form-header textarea {
+  height: 8em;
+}
+
+.create-form-btn {
+  width: fit-content;
+  background-color: rgb(226, 226, 226);
+  color: black;
+  margin-bottom: 1em;
+}
 
 @media (max-width:1200px) {
   .container {

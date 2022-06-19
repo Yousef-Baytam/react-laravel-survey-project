@@ -96,7 +96,7 @@ export default function AddForm() {
 
     const handleFormCreated = () => {
         if (!formCreated)
-            return <div><button onClick={() => createForm()}>Create a Form</button></div>
+            return <div><button className='create-form-btn' onClick={() => createForm()}>Create a Form</button></div>
         if (formCreated)
             return <div>
                 <input placeholder='Question' onChange={(e) => setQuestionText(e.target.value)} />
