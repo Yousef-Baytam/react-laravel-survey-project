@@ -78,6 +78,7 @@ export default function FormView(props) {
 
     useEffect(() => {
         getForm()
+        props.answeredForms.includes(formId) && navigate('/forms')
     }, [])
 
     useEffect(() => {

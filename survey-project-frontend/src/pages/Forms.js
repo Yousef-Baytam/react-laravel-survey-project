@@ -22,6 +22,10 @@ export default function Forms(props) {
         )
     }
 
+    useEffect(() => {
+        props.getAllAnsweredForms()
+    }, [])
+
     return (
         <div className='container'>
             <div>List of All Forms</div>

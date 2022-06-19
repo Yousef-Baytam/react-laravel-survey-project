@@ -114,7 +114,7 @@ function App() {
           ></Route>
           <Route
             path="/forms"
-            element={<Forms forms={forms} questions={allQuestions} answeredForms={answeredForms} />}
+            element={<Forms forms={forms} questions={allQuestions} answeredForms={answeredForms} setAnsweredForms={setAnsweredForms} getAllAnsweredForms={getAllAnsweredForms} />}
           ></Route>
           <Route
             path="/forms/:id"
