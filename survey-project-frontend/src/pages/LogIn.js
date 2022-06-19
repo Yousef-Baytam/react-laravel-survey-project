@@ -40,6 +40,9 @@ export default function LogIn(props) {
 
     return (
         <div>
+            <div className='title'>
+                Survey Champ
+            </div>
             <form>
                 <div>
                     <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />

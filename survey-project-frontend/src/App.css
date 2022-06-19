@@ -38,11 +38,13 @@ textarea {
 }
 
 .nav {
-  height: 3em;
+  height: 5em;
   padding: 1em 3em;
   display: flex;
   justify-content: space-between;
   align-items: center;
+  position: fixed;
+  width: 100%;
 }
 
 .nav-links {
@@ -69,16 +71,29 @@ a {
 }
 
 .special {
-  color: rebeccapurple;
+  padding-left: 0.2em;
+  color: red;
   font-weight: bold;
 }
 
 form {
-  background-color: rgba(209, 209, 209, 0.562);
+  background-color: rgba(0, 0, 0, 0.562);
   width: 350px;
   border-radius: 5px;
 }
 
 form div {
   padding: 0.3em;
+}
+
+form div div {
+  text-align: center;
+  color: white;
+}
+
+.title {
+  text-align: center;
+  font-size: 3em;
+  color: white;
+  font-weight: bold;
 }
