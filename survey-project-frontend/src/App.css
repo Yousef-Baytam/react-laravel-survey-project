@@ -1,4 +1,8 @@
-:root {}
+:root {
+  --main-bg-color: rgb(92, 194, 253);
+  --secondary-bg-color: rgb(32, 172, 253);
+  --text: white;
+}
 
 * {
   box-sizing: border-box;
@@ -58,16 +62,16 @@ textarea {
 .nav-links div,
 .logout {
   margin: 0.6em;
-  background-color: rgb(92, 194, 253);
+  background-color: var(--main-bg-color);
   border-radius: 5px;
   cursor: pointer;
   padding: 0.5em 1em;
-  color: white;
+  color: var(--text);
 }
 
 a {
   text-decoration: none;
-  color: white;
+  color: var(--text);
 }
 
 .d-none {
@@ -98,7 +102,7 @@ form div div {
 .title {
   text-align: center;
   font-size: 3em;
-  color: white;
+  color: var(--text);
   font-weight: bold;
   margin-bottom: 1em;
 }
@@ -111,12 +115,12 @@ form div div {
 }
 
 .submit:hover {
-  color: white;
+  color: var(--text);
   background-color: black;
 }
 
 .container {
-  background-color: white;
+  background-color: var(--text);
   height: fit-content;
   border-radius: 10px;
   align-self: flex-start;
@@ -128,7 +132,7 @@ form div div {
   width: calc(100% - 1em);
   margin: 0.5em;
   border-radius: 10px;
-  background-color: rgb(92, 194, 253);
+  background-color: var(--main-bg-color);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -173,8 +177,8 @@ button {
   border-radius: 5px;
   border: 0;
   padding: 0.5em 1em;
-  background-color: rgb(92, 194, 253);
-  color: white;
+  background-color: var(--main-bg-color);
+  color: var(--text);
   transition: all 100ms ease;
   cursor: pointer;
 }
@@ -289,7 +293,9 @@ button:hover {
   margin: 0 1em 1em 0;
 }
 
-.active {}
+.active {
+  background-color: var(--secondary-bg-color);
+}
 
 @media (max-width:1200px) {
   .container {
