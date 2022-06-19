@@ -29,8 +29,10 @@ export default function Forms(props) {
 
     return (
         <div className='container'>
-            <div>List of All Forms</div>
-            {handleAllForms()}
+            <div className='content-wrapper'>
+                <div className='page-title'>List of All Forms</div>
+                {handleAllForms()}
+            </div>
         </div>
     )
 }
