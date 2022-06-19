@@ -166,13 +166,14 @@ form div div {
 }
 
 button {
-  width: 80px;
+  min-width: 80px;
+  max-width: fit-content;
   border-radius: 5px;
   border: 0;
   padding: 0.5em 1em;
   background-color: rgb(92, 194, 253);
   color: white;
-  transition: all 200ms ease;
+  transition: all 100ms ease;
   cursor: pointer;
 }
 
@@ -262,6 +263,15 @@ button:hover {
 
 .cc-question {
   margin: 0.8em;
+}
+
+.admin-tools {
+  display: flex;
+  align-items: center;
+}
+
+.dd-options {
+  margin-right: 2em;
 }
 
 @media (max-width:1200px) {
