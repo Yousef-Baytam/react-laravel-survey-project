@@ -20,6 +20,7 @@ function App() {
   const [loggedIn, setLoggedIn] = useState(false)
   const [forms, setForms] = useState([])
   const [allQuestions, setAllQuestions] = useState([])
+  const [answeredForms, setAnsweredForms] = useState([])
 
   const getAllForms = async () => {
     try {
@@ -77,6 +78,27 @@ function App() {
     }
   }, [loggedIn])
 
+  const getAllAnsweredForms = async () => {
+    try {
+      let res = await axios({
+        url: `http://127.0.0.1:8000/api/v1/user/forms/answered`,
+        method: "Get",
+        headers: {
+          Authorization: `bearer ${ localStorage.getItem('token') }`
+        },
+      })
+      console.log(res)
+      setAnsweredForms(res.data.answeredForms)
+    }
+    catch (e) {
+      console.log(e);
+    }
+  }
+
+  useEffect(() => {
+    getAllAnsweredForms()
+  }, [])
+
   return (
     <>
       <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
@@ -92,11 +114,11 @@ function App() {
           ></Route>
           <Route
             path="/forms"
-            element={<Forms forms={forms} questions={allQuestions} />}
+            element={<Forms forms={forms} questions={allQuestions} answeredForms={answeredForms} />}
           ></Route>
           <Route
             path="/forms/:id"
-            element={<FormView forms={forms} questions={allQuestions} />}
+            element={<FormView forms={forms} questions={allQuestions} answeredForms={answeredForms} />}
           ></Route>
           <Route
             path="/forms/new"
