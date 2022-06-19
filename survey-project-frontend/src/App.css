@@ -131,6 +131,7 @@ form div div {
   align-self: flex-start;
   margin-top: 5em;
   width: 800px;
+  z-index: 1;
 }
 
 .content-wrapper {

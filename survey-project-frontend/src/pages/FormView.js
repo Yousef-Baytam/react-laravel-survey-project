@@ -4,6 +4,7 @@ import Radio from '../components/Radio'
 import Single from '../components/Single'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
+import Checkbox from '../components/Checkbox'
 
 export default function FormView(props) {
     const formId = parseInt(window.location.href.slice(window.location.href.indexOf('forms/') + 6))
@@ -53,6 +54,8 @@ export default function FormView(props) {
             return <Single question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
         if (i === 'MCQ')
             return <Radio question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
+        if (i === 'Checkbox')
+            return <Checkbox question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
     }
 
     const handleSubmit = async () => {

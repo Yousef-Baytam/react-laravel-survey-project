@@ -6,6 +6,7 @@ import Multiline from '../components/Multiline'
 import Radio from '../components/Radio'
 import Single from '../components/Single'
 import axios from 'axios'
+import Checkbox from '../components/Checkbox'
 
 export default function AddForm() {
 
@@ -84,15 +85,16 @@ export default function AddForm() {
             </div>)
 
         if (formCreated)
-            return (<div className='form-header'>
-                <div className='bold form-title'>
-                    {formName}
-                </div>
-                <div>
-                    <span className='bold'>Description: </span><br />
-                    {formDescription}
-                </div>
-            </div>)
+            return (
+                <div className='form-header'>
+                    <div className='bold form-title'>
+                        {formName}
+                    </div>
+                    <div>
+                        <span className='bold'>Description: </span><br />
+                        {formDescription}
+                    </div>
+                </div>)
     }
 
     const handleFormCreated = () => {
@@ -105,6 +107,7 @@ export default function AddForm() {
                     <option value={'Single Line'}>Single Line</option>
                     <option value={'Drop Down'}>Drop Down</option>
                     <option value={'MCQ'}>MCQ</option>
+                    <option value={'Checkbox'}>Checkbox</option>
                 </select>
                 <button className='create-form-btn' onClick={() => { createQuestion() }}>Add Question</button>
             </div>
@@ -123,6 +126,8 @@ export default function AddForm() {
             return <Single question={value} admin={handleAdminOptions} num={num} />
         if (i.type === 'MCQ')
             return <Radio question={value} admin={handleAdminOptions} num={num} />
+        if (i.type === 'Checkbox')
+            return <Checkbox question={value} admin={handleAdminOptions} num={num} />
     }
 
     return (
