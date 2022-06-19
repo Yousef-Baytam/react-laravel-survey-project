@@ -135,3 +135,12 @@ form div div {
   font-size: 2em;
   margin: 1em;
 }
+
+.card-container {
+  width: calc(100% - 0.8em);
+  padding: 1em;
+  margin: 0.2em;
+  background-color: white;
+  height: 6em;
+  border-radius: 10px;
+}
