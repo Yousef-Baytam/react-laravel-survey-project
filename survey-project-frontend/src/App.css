@@ -246,6 +246,24 @@ button:hover {
   border-radius: 10px;
 }
 
+.question-card-wrapper {
+
+  width: calc(100% - 0.4em)
+}
+
+.question {
+  padding: 1em;
+  width: 100%;
+}
+
+.question button {
+  float: right;
+}
+
+.cc-question {
+  margin: 0.8em;
+}
+
 @media (max-width:1200px) {
   .container {
     margin-top: 6em;

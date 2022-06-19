@@ -58,7 +58,7 @@ export default function Drop(props) {
             {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <br />
             {adminTools()}
-            <select id={props.question} onChange={(e) => props.handleAnswer(e.target.value, props.num)} defaultValue={'none'}>
+            <select id={props.question} className='select-dd' onChange={(e) => props.handleAnswer(e.target.value, props.num)} defaultValue={'none'}>
                 <option value={'none'}>None</option>
                 {handleDropDown()}
             </select>

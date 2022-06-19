@@ -130,7 +130,7 @@ export default function AddForm() {
             <div className='content-wrapper'>
                 {handleFormTitle()}
                 {handleFormCreated()}
-                <div>
+                <div className='question-card-wrapper'>
                     <List questions={questions} setQuestions={setQuestions} handleQuestion={handleQuestion} />
                 </div>
             </div>

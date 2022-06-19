@@ -62,7 +62,7 @@ export default function Radio(props) {
             {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
             <br />
             {adminTools()}
-            <div>
+            <div className='question-card-wrapper'>
                 {handleRadio()}
             </div>
         </div>
