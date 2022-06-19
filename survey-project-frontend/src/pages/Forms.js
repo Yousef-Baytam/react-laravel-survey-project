@@ -24,6 +24,7 @@ export default function Forms(props) {
 
     useEffect(() => {
         props.getAllAnsweredForms()
+        props.getAllForms()
     }, [])
 
     return (
