@@ -59,7 +59,9 @@ export default function Radio(props) {
     return (
         <div key={props.num} className='card-container cc-question'>
             <div className='question'>
-                <label htmlFor={props.question}>{props.question}</label>
+                <div className='question-label'>
+                    <label htmlFor={props.question} >{props.question}</label>
+                </div>
                 {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
                 <br />
                 {adminTools()}

@@ -87,15 +87,22 @@ export default function FormView(props) {
 
     return (
         <div className='container'>
-            <div>
-                {form.name}
-            </div>
-            <div>
-                {form.description}
-            </div>
-            {formQuestions.map((i) => handleQuestionType(i.question_types.question_type, i.question, i.id, i.values))}
-            <div>
-                <button onClick={() => { handleSubmit(); navigate('/forms') }}>Submit answers</button>
+            <div className='content-wrapper'>
+                <div className='form-header'>
+                    <div className='bold form-title'>
+                        <div>
+                            {form.name}
+                        </div>
+                    </div>
+                    <div>
+                        <span className='bold'>Description: </span><br />
+                        {form.description}
+                    </div>
+                </div>
+                {formQuestions.map((i) => handleQuestionType(i.question_types.question_type, i.question, i.id, i.values))}
+                <div>
+                    <button className='create-form-btn' onClick={() => { handleSubmit(); navigate('/forms') }}>Submit answers</button>
+                </div>
             </div>
         </div>
     )
