@@ -99,14 +99,14 @@ export default function AddForm() {
         if (!formCreated)
             return <div><button className='create-form-btn' onClick={() => createForm()}>Create a Form</button></div>
         if (formCreated)
-            return <div>
+            return <div className='form-header'>
                 <input placeholder='Question' onChange={(e) => setQuestionText(e.target.value)} />
-                <select id={'questionType'}>
+                <select id={'questionType'} className='select-dd'>
                     <option value={'Single Line'}>Single Line</option>
                     <option value={'Drop Down'}>Drop Down</option>
                     <option value={'MCQ'}>MCQ</option>
                 </select>
-                <button onClick={() => { createQuestion() }}>Add Question</button>
+                <button className='create-form-btn' onClick={() => { createQuestion() }}>Add Question</button>
             </div>
     }
 
