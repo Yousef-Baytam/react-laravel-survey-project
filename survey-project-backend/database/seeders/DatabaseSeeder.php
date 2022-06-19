@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use App\Models\Question_type;
 
 class DatabaseSeeder extends Seeder
 {
@@ -14,11 +15,17 @@ class DatabaseSeeder extends Seeder
      */
     public function run()
     {
-        // \App\Models\User::factory(10)->create();
-
-        // \App\Models\User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
+        Question_type::create([
+            'question_type' => 'Single Line'
+        ]);
+        Question_type::create([
+            'question_type' => 'MCQ'
+        ]);
+        Question_type::create([
+            'question_type' => 'Drop Down'
+        ]);
+        Question_type::create([
+            'question_type' => 'Checkbox'
+        ]);
     }
 }
