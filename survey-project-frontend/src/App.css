@@ -24,3 +24,34 @@ textarea {
   margin: 1em 0 1em 0;
   width: 100%;
 }
+
+.nav {
+  height: 3em;
+  padding: 1em 3em;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.nav-links {
+  display: flex;
+}
+
+.nav-links div,
+.logout {
+  margin: 0.2em;
+  background-color: rgb(92, 194, 253);
+  border-radius: 5px;
+  cursor: pointer;
+  padding: 0.5em 1em;
+  color: white;
+}
+
+a {
+  text-decoration: none;
+  color: white;
+}
+
+.d-none {
+  display: none !important;
+}

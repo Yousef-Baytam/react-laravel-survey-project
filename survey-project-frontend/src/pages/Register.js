@@ -3,8 +3,11 @@ import { Link, useNavigate } from 'react-router-dom'
 import Input from '../components/Input'
 import Submit from '../components/Submit'
 import axios from 'axios'
+import { useSelector, useDispatch } from 'react-redux'
+import { storeUser, currentUser } from '../features/userSlice'
 
 export default function Register(props) {
+    const dispatch = useDispatch()
 
     const navigate = useNavigate()
     const [name, setName] = useState('')
@@ -24,6 +27,7 @@ export default function Register(props) {
             })
             localStorage.setItem('token', res.data.authorisation.token)
             props.setLoggedIn(true)
+            dispatch(storeUser(res.data.user))
         }
         catch (e) {
             console.log(e);
