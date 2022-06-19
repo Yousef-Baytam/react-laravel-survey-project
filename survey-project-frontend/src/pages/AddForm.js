@@ -84,14 +84,15 @@ export default function AddForm() {
             </div>)
 
         if (formCreated)
-            return (<>
-                <div>
+            return (<div className='form-header'>
+                <div className='bold form-title'>
                     {formName}
                 </div>
                 <div>
+                    <span className='bold'>Description: </span><br />
                     {formDescription}
                 </div>
-            </>)
+            </div>)
     }
 
     const handleFormCreated = () => {
