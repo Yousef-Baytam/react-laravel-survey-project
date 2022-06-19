@@ -43,7 +43,7 @@ class FormController extends Controller
         return response()->json([
             "status" => "Success",
             "answers" => $final,
-            "answered forms" => $formIds
+            "answeredForms" => $formIds
         ], 200);
     }
 

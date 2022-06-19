@@ -6,6 +6,8 @@ import { Routes, Route, useNavigate } from "react-router-dom"
 export default function Forms(props) {
     const navigate = useNavigate()
 
+    const [answeredForms, setAnsweredForms] = useState([])
+
     const handleAllForms = () => {
         return (
             <>
@@ -21,6 +23,27 @@ export default function Forms(props) {
             </>
         )
     }
+
+    const getAllAnsweredForms = async () => {
+        try {
+            let res = await axios({
+                url: `http://127.0.0.1:8000/api/v1/user/forms/answered`,
+                method: "Get",
+                headers: {
+                    Authorization: `bearer ${ localStorage.getItem('token') }`
+                },
+            })
+            console.log(res)
+            setAnsweredForms(res.data.answeredForms)
+        }
+        catch (e) {
+            console.log(e);
+        }
+    }
+
+    useEffect(() => {
+        getAllAnsweredForms()
+    }, [])
 
     return (
         <div className='container'>
