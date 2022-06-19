@@ -6,7 +6,10 @@ export default function Header(props) {
     const currentUser = useSelector((state) => state.user)
     const navigate = useNavigate()
 
-    const themes = { 'darkblue': '#000058' }
+    const themes = {
+        'darkblue': '#000058',
+        'lightblue': 'rgb(92, 194, 253)'
+    }
 
     const handleLogout = () => {
         localStorage.removeItem('token')
@@ -32,7 +35,12 @@ export default function Header(props) {
                 </div>
             </div>
             <div className='nav-links-end'>
-                <div className='theme'>Theme</div>
+                <div className='theme'>Theme
+                    <div className='menu'>
+                        <div className='menu-box'>darkblue</div>
+                        <div className='menu-box'>lightblue</div>
+                    </div>
+                </div>
                 <div className='logout'>
                     <div onClick={handleLogout}>Logout</div>
                 </div>

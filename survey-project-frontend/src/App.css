@@ -302,12 +302,39 @@ button:hover {
   background-color: var(--secondary-bg-color);
 }
 
+.menu {
+  background-color: white;
+  width: 120px;
+  text-align: center;
+  border-radius: 5px;
+  display: none;
+  position: absolute;
+  right: 8em;
+  top: 3.7em;
+  color: black;
+}
+
+.menu-box {
+  padding: 0.5em;
+  cursor: pointer;
+}
+
+.menu-box:hover {
+  background-color: black;
+  color: white;
+}
+
 .theme {
   margin-right: 1em;
   background-color: var(--main-bg-color);
   padding: 0.5em 1em;
   border-radius: 5px;
   color: var(--text);
+  cursor: pointer;
+}
+
+.theme:hover .menu {
+  display: block !important;
 }
 
 @media (max-width:1200px) {
