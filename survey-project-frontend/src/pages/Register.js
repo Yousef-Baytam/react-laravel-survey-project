@@ -42,11 +42,13 @@ export default function Register(props) {
     return (
         <div>
             <form>
-                <Input type={'text'} name={'name'} placeholder={'Name'} value={name} setValue={setName} />
-                <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
-                <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
-                <Submit value={'Sign up'} run={handleRegister} />
-                <Link to="/" className='special'>Back</Link>
+                <div>
+                    <Input type={'text'} name={'name'} placeholder={'Name'} value={name} setValue={setName} />
+                    <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
+                    <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
+                    <Submit value={'Sign up'} run={handleRegister} />
+                    <Link to="/" className='special'>Back</Link>
+                </div>
             </form>
         </div>
     )

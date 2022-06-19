@@ -41,10 +41,12 @@ export default function LogIn(props) {
     return (
         <div>
             <form>
-                <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
-                <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
-                <Submit value={'Login'} run={login} />
-                <div>Dont have an accout?<Link to="/register" className='special'>Register</Link></div>
+                <div>
+                    <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
+                    <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
+                    <Submit value={'Login'} run={login} />
+                    <div>Dont have an accout?<Link to="/register" className='special'>Register</Link></div>
+                </div>
             </form>
         </div>
     )
