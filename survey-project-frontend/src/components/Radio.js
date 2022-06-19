@@ -10,11 +10,11 @@ export default function Radio(props) {
 
     const handleRadio = () => {
         return (
-            options.map((i) => (<>
+            options.map((i) => (<div className='radio'>
                 <input style={{ width: '2em' }} type={'radio'} name={props.num} id={i.id} key={i.id} value={i.value} onChange={(e) => props.handleAnswer(e.target.value, props.num)} />
                 <label htmlFor={i.id} key={`1${ i.id }`}>{i.value}</label>
                 <br />
-            </>))
+            </div>))
         )
     }
 
@@ -51,19 +51,21 @@ export default function Radio(props) {
     const adminTools = () => {
         if (props.admin)
             return (
-                <><input style={{ width: '20%', }} onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
-                    <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br /></>
+                <div className='admin-tools'><input style={{ width: '20%', }} className='dd-options' onChange={(e) => setOptionText(e.target.value)} value={optionText}></input>
+                    <button onClick={() => { createValue(props.num, optionText); }}>Add option</button><br /></div>
             )
     }
 
     return (
-        <div key={props.num}>
-            <label htmlFor={props.question}>{props.question}</label>
-            {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
-            <br />
-            {adminTools()}
-            <div className='question-card-wrapper'>
-                {handleRadio()}
+        <div key={props.num} className='card-container cc-question'>
+            <div className='question'>
+                <label htmlFor={props.question}>{props.question}</label>
+                {currentUser.user.payload.user_type == 'admin' && props.admin && props.admin(props.num)}
+                <br />
+                {adminTools()}
+                <div className='question-card-wrapper'>
+                    {handleRadio()}
+                </div>
             </div>
         </div>
     )
