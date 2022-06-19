@@ -6,10 +6,6 @@ export default function Header(props) {
     const currentUser = useSelector((state) => state.user)
     const navigate = useNavigate()
 
-    const themes = {
-        'darkblue': '#000058',
-        'lightblue': 'rgb(92, 194, 253)'
-    }
 
     const handleLogout = () => {
         localStorage.removeItem('token')
@@ -22,6 +18,23 @@ export default function Header(props) {
         user = currentUser.user.payload.user_type
     } catch (e) {
         console.log(e)
+    }
+
+    const setTheme = (e) => {
+        localStorage.setItem('theme', e)
+        let themes = props.themes
+        console.log(themes)
+        let r = document.querySelector(':root')
+        if (e == 'darkblue') {
+            r.style.setProperty('--main-bg-color', themes.darkblue.main)
+            r.style.setProperty('--secondary-bg-color', themes.darkblue.primary)
+            r.style.setProperty('--text', themes.darkblue.text)
+        }
+        if (e == 'lightblue') {
+            r.style.setProperty('--main-bg-color', themes.lightblue.main)
+            r.style.setProperty('--secondary-bg-color', themes.lightblue.primary)
+            r.style.setProperty('--text', themes.lightblue.text)
+        }
     }
 
     return (
@@ -37,8 +50,8 @@ export default function Header(props) {
             <div className='nav-links-end'>
                 <div className='theme'>Theme
                     <div className='menu'>
-                        <div className='menu-box'>darkblue</div>
-                        <div className='menu-box'>lightblue</div>
+                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>darkblue</div>
+                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>lightblue</div>
                     </div>
                 </div>
                 <div className='logout'>

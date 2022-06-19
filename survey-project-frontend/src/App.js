@@ -22,6 +22,11 @@ function App() {
   const [allQuestions, setAllQuestions] = useState([])
   const [answeredForms, setAnsweredForms] = useState([])
 
+  const themes = {
+    'darkblue': { 'main': '#000058', 'primary': 'black', 'text': 'white' },
+    'lightblue': { 'main': 'rgb(92, 194, 253)', 'primary': 'rgb(32, 172, 253)', 'text': 'white' }
+  }
+
   const getAllForms = async () => {
     try {
       let res = await axios({
@@ -97,11 +102,24 @@ function App() {
 
   useEffect(() => {
     getAllAnsweredForms()
+    let theme = localStorage.getItem('theme')
+    let r = document.querySelector(':root')
+    if (theme == 'darkblue') {
+      r.style.setProperty('--main-bg-color', themes.darkblue.main)
+      r.style.setProperty('--secondary-bg-color', themes.darkblue.primary)
+      r.style.setProperty('--text', themes.darkblue.text)
+    }
+    if (theme == 'lightblue') {
+      r.style.setProperty('--main-bg-color', themes.lightblue.main)
+      r.style.setProperty('--secondary-bg-color', themes.lightblue.primary)
+      r.style.setProperty('--text', themes.lightblue.text)
+    }
+
   }, [])
 
   return (
     <>
-      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} />
+      <Header loggedIn={loggedIn} setLoggedIn={setLoggedIn} themes={themes} />
       <div className="App">
         <Routes>
           <Route
