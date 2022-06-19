@@ -166,8 +166,11 @@ button:hover {
   border: 2px solid black;
 }
 
+.bold {
+  font-weight: bold;
+}
+
 .mark {
-  background-color: red;
   width: 5px;
   height: 250%;
   margin-right: 1.5em;
@@ -178,4 +181,12 @@ button:hover {
 .info {
   display: flex;
   flex-direction: row;
+}
+
+.open {
+  background-color: rgb(0, 173, 0);
+}
+
+.closed {
+  background-color: red !important;
 }
