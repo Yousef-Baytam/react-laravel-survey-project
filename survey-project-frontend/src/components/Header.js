@@ -35,6 +35,26 @@ export default function Header(props) {
             r.style.setProperty('--secondary-bg-color', themes.lightblue.primary)
             r.style.setProperty('--text', themes.lightblue.text)
         }
+        if (e == 'purple') {
+            r.style.setProperty('--main-bg-color', themes.purple.main)
+            r.style.setProperty('--secondary-bg-color', themes.purple.primary)
+            r.style.setProperty('--text', themes.purple.text)
+        }
+        if (e == 'maroon') {
+            r.style.setProperty('--main-bg-color', themes.maroon.main)
+            r.style.setProperty('--secondary-bg-color', themes.maroon.primary)
+            r.style.setProperty('--text', themes.maroon.text)
+        }
+        if (e == 'dark') {
+            r.style.setProperty('--main-bg-color', themes.dark.main)
+            r.style.setProperty('--secondary-bg-color', themes.dark.primary)
+            r.style.setProperty('--text', themes.dark.text)
+        }
+        if (e == 'light') {
+            r.style.setProperty('--main-bg-color', themes.light.main)
+            r.style.setProperty('--secondary-bg-color', themes.light.primary)
+            r.style.setProperty('--text', themes.light.text)
+        }
     }
 
     return (
@@ -52,6 +72,10 @@ export default function Header(props) {
                     <div className='menu'>
                         <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>darkblue</div>
                         <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>lightblue</div>
+                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>purple</div>
+                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>maroon</div>
+                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>dark</div>
+                        <div className='menu-box' onClick={(e) => { setTheme(e.target.innerText) }}>light</div>
                     </div>
                 </div>
                 <div className='logout'>

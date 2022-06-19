@@ -24,7 +24,11 @@ function App() {
 
   const themes = {
     'darkblue': { 'main': '#000058', 'primary': 'black', 'text': 'white' },
-    'lightblue': { 'main': 'rgb(92, 194, 253)', 'primary': 'rgb(32, 172, 253)', 'text': 'white' }
+    'lightblue': { 'main': 'rgb(92, 194, 253)', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
+    'purple': { 'main': '#6a0dad', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
+    'maroon': { 'main': '#800000', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
+    'dark': { 'main': 'black', 'primary': 'rgb(32, 172, 253)', 'text': 'white' },
+    'light': { 'main': 'white', 'primary': 'rgb(32, 172, 253)', 'text': 'black' }
   }
 
   const getAllForms = async () => {
@@ -113,6 +117,26 @@ function App() {
       r.style.setProperty('--main-bg-color', themes.lightblue.main)
       r.style.setProperty('--secondary-bg-color', themes.lightblue.primary)
       r.style.setProperty('--text', themes.lightblue.text)
+    }
+    if (theme == 'purple') {
+      r.style.setProperty('--main-bg-color', themes.purple.main)
+      r.style.setProperty('--secondary-bg-color', themes.purple.primary)
+      r.style.setProperty('--text', themes.purple.text)
+    }
+    if (theme == 'maroon') {
+      r.style.setProperty('--main-bg-color', themes.maroon.main)
+      r.style.setProperty('--secondary-bg-color', themes.maroon.primary)
+      r.style.setProperty('--text', themes.maroon.text)
+    }
+    if (theme == 'dark') {
+      r.style.setProperty('--main-bg-color', themes.dark.main)
+      r.style.setProperty('--secondary-bg-color', themes.dark.primary)
+      r.style.setProperty('--text', themes.dark.text)
+    }
+    if (theme == 'light') {
+      r.style.setProperty('--main-bg-color', themes.light.main)
+      r.style.setProperty('--secondary-bg-color', themes.light.primary)
+      r.style.setProperty('--text', themes.light.text)
     }
 
   }, [])

@@ -147,6 +147,7 @@ form div div {
   font-weight: bold;
   font-size: 2em;
   margin: 1em;
+  color: var(--text);
 }
 
 .card-container {
