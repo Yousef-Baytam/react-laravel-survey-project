@@ -55,3 +55,8 @@ a {
 .d-none {
   display: none !important;
 }
+
+.special {
+  color: rebeccapurple;
+  font-weight: bold;
+}

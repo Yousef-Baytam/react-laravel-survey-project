@@ -44,7 +44,7 @@ export default function LogIn(props) {
                 <Input type={'email'} name={'email'} placeholder={'Email'} value={email} setValue={setEmail} />
                 <Input type={'password'} name={'password'} placeholder={'Password'} value={password} setValue={setPassword} />
                 <Submit value={'Login'} run={login} />
-                <div>Dont have an accout?<Link to="/register">Register</Link></div>
+                <div>Dont have an accout?<Link to="/register" className='special'>Register</Link></div>
             </form>
         </div>
     )
