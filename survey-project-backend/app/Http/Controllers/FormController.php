@@ -23,9 +23,11 @@ class FormController extends Controller
 
     public function getAllAnsweredForms()
     {
-        $answers = Answer::where('id', Auth::user()->id)->with('questions')->get();
+        $forms = Answer::where('users_id', Auth::user()->id)->with('surveys')->get();
+        $answers = Answer::where('users_id', Auth::user()->id)->with('questions')->get();
         $questions = Question::with('values')->with('question_types')->with('surveys')->get();
         $final = [];
+        $formIds = [];
         foreach ($answers as $i) {
             foreach ($questions as $j) {
                 if ($i->questions->id === $j->id) {
@@ -34,9 +36,14 @@ class FormController extends Controller
                 }
             }
         }
+        foreach ($forms as $i) {
+            if (!in_array($i->surveys->id, $formIds))
+                array_push($formIds, $i->surveys->id);
+        }
         return response()->json([
             "status" => "Success",
             "answers" => $final,
+            "answered forms" => $formIds
         ], 200);
     }
 

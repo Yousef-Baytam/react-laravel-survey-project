@@ -2,10 +2,13 @@ import React, { useEffect, useState } from 'react'
 import Drop from '../components/Drop'
 import Radio from '../components/Radio'
 import Single from '../components/Single'
+import axios from 'axios'
+import { useNavigate } from 'react-router-dom'
 
 export default function FormView(props) {
     const formId = parseInt(window.location.href.slice(window.location.href.indexOf('forms/') + 6))
 
+    const navigate = useNavigate()
     const [form, setForm] = useState({})
     const [formQuestions, setFormQuestions] = useState([])
     const [answers, setAnswers] = useState([])
@@ -52,6 +55,27 @@ export default function FormView(props) {
             return <Radio question={value} num={num} parentOptions={options} setAnswer={setAnswers} answer={answers} handleAnswer={handleAnswer} />
     }
 
+    const handleSubmit = async () => {
+        for (let i of answers) {
+            let data = new FormData()
+            data.append('answer', i.answer ?? '')
+            try {
+                let res = await axios({
+                    url: `http://127.0.0.1:8000/api/v1/user/forms/submit/${ i.id }`,
+                    method: "POST",
+                    headers: {
+                        Authorization: `bearer ${ localStorage.getItem('token') }`
+                    },
+                    data: data,
+                })
+                console.log(res)
+            }
+            catch (e) {
+                console.log(e);
+            }
+        }
+    }
+
     useEffect(() => {
         getForm()
     }, [])
@@ -70,7 +94,7 @@ export default function FormView(props) {
             </div>
             {formQuestions.map((i) => handleQuestionType(i.question_types.question_type, i.question, i.id, i.values))}
             <div>
-                <button>Submit answers</button>
+                <button onClick={() => { handleSubmit(); navigate('/forms') }}>Submit answers</button>
             </div>
         </div>
     )
