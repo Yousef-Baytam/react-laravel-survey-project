@@ -3,7 +3,7 @@
 Steps to run the app:
 
 1- clone the repo <br/>
-2- open the teminal the cwd is set to the laravel's folder path<br/>
+2- open the teminal and make sure the cwd is set to the laravel's folder path<br/>
 3- run the command 'composer i'<br/>
 4- create a .env file and copy .env.example content to it<br/>
 5- generate a key<br/>
